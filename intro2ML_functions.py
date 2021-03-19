@@ -63,6 +63,21 @@ def standard_normalizer(x):
     return normalizer,inverse_normalizer
 
 
+def plot_3class(x_in,y_in):
+    #Create a figure
+    plt.figure()
+    colors = ['tab:blue', 'tab:orange', 'tab:green']
+    #iterate over the classes
+    for i in range(3):
+        #select only the points with class i and plot them in the right colors
+        mask = (y_in.astype(int)==i)
+        plt.scatter(x_in[0,mask[0,:]], x_in[1,mask[0,:]], marker = 'o', color = colors[i], label = 'y = {}'.format(i))
+    #finish the plot
+    plt.legend()
+    plt.axis('scaled')
+    plt.xlabel('septal width (cm)'); plt.ylabel('septal length (cm)');
+
+
 
 
 
